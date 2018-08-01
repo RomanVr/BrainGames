@@ -6,4 +6,5 @@ const greeting = () => {
   console.log('\n');
   console.log(`Hello, ${name}`);
 };
+
 export default greeting;
