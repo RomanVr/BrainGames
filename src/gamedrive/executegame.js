@@ -4,11 +4,11 @@ const answerCount = 3;
 
 const braingame = (game) => {
   console.log('Welcome to the Brain Games!');
-  game.nameGame();
+  console.log(`${game.taskGame()}`);
   const name = readlineSync.question('May I have your name? ');
   console.log(`Hello, ${name}\n`);
   for (let attemptsCount = 0; attemptsCount < answerCount; attemptsCount += 1) {
-    game.questionGame();
+    console.log(`${game.questionGame()}`);
     const answer = readlineSync.question('Your answer: ');
     const rigthAnswer = game.correctResult();
     if (answer === rigthAnswer) {

@@ -1,4 +1,3 @@
-import readlineSync from 'readline-sync';
 import getRandomNumber from './utils';
 
 const getRandomOperator = () => {
@@ -27,28 +26,17 @@ const calculateExpresion = (numberLeft, operator, numberRigth) => {
   }
 };
 
-const answerCount = 3;
+let numberLeft;
+let numberRigth;
+let operator;
 
-const brainCalc = () => {
-  console.log('Welcome to the Brain Games!');
-  console.log('What is the result of the expression?\n');
-  const name = readlineSync.question('May I have your name? ');
-  console.log(`Hello, ${name} \n`);
-  for (let attemptsCount = 0; attemptsCount < answerCount; attemptsCount += 1) {
-    const numberLeft = getRandomNumber(0, 30);
-    const numberRigth = getRandomNumber(0, 30);
-    const operator = getRandomOperator();
-    console.log(`Question: ${numberLeft} ${operator} ${numberRigth}`);
-    const answer = readlineSync.question('Your answer: ');
-    const rigthAnswer = calculateExpresion(numberLeft, operator, numberRigth);
-    if (answer === rigthAnswer) {
-      console.log('Correct!');
-    } else {
-      console.log(`"${answer}" is wrong answer ;(. Correct answer was "${rigthAnswer}".`);
-      console.log(`Let's try again, ${name}`);
-      return;
-    }
-  }
+export const taskGame = () => ('What is the result of the expression?\n');
+
+export const questionGame = () => {
+  numberLeft = getRandomNumber(0, 30);
+  numberRigth = getRandomNumber(0, 30);
+  operator = getRandomOperator();
+  return `Question: ${numberLeft} ${operator} ${numberRigth}`;
 };
 
-export default brainCalc;
+export const correctResult = () => calculateExpresion(numberLeft, operator, numberRigth);

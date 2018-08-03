@@ -1,8 +1,11 @@
 install:
 		npm install
 
-start:
+start1:
 		npm run babel-node -- src/bin/brain-even.js
+
+start2:
+		npm run babel-node -- src/bin/brain-calc.js
 
 lint:
 		npm run eslint .
