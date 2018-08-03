@@ -7,6 +7,9 @@ start1:
 start2:
 		npm run babel-node -- src/bin/brain-calc.js
 
+start3:
+		npm run babel-node -- src/bin/brain-gcd.js
+
 lint:
 		npm run eslint .
 
