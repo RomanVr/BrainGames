@@ -1,22 +1,21 @@
 import readlineSync from 'readline-sync';
-import getRandomArbitRary from '../lib/supportFunctions';
+import getRandomNuber from './utils';
+
+const answerCount = 3;
+
+const isEven = number => number % 2;
 
 const brainEven = () => {
   console.log('Welcome to the Brain Games!');
   console.log('Answer "yes" if number even otherwise answer "no".\n');
   const name = readlineSync.question('May I have your name? ');
   console.log(`Hello, ${name}\n`);
-  const answerCount = 3;
-  let numberCorrectAttempts = 0;
-  while (numberCorrectAttempts < answerCount) {
-    const numberMake = getRandomArbitRary();
-    console.log(`Question: ${numberMake}`);
+  for (let attemptsCount = 0; attemptsCount < answerCount; attemptsCount += 1) {
+    const question = getRandomNuber();
+    console.log(`Question: ${question}`);
     const answer = readlineSync.question('Your answer: ');
-    const rigthAnswer = numberMake % 2 === 0 ? 'yes' : 'no';
-    if (answer === 'rigthAnswer') {
-      numberCorrectAttempts += 1;
-      console.log('Correct!');
-    } else {
+    const rigthAnswer = isEven(question) ? 'yes' : 'no';
+    if (answer !== rigthAnswer) {
       console.log(`"${answer}" is wrong answer ;(. Correct answer was "${rigthAnswer}".`);
       console.log(`Let's try again, ${name}`);
       return;

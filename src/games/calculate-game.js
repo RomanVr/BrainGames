@@ -1,8 +1,8 @@
 import readlineSync from 'readline-sync';
-import getRandomArbitRary from '../lib/supportFunctions';
+import getRandomNumber from './utils';
 
 const getRandomOperator = () => {
-  switch (getRandomArbitRary(1, 3)) {
+  switch (getRandomNumber(1, 3)) {
     case 1:
       return '+';
     case 2:
@@ -36,8 +36,8 @@ const brainCalc = () => {
   let numberCorrectAttempts = 0;
   let attemptsCount = 0;
   while (attemptsCount < answerCount) {
-    const numberLeft = getRandomArbitRary(0, 30);
-    const numberRigth = getRandomArbitRary(0, 30);
+    const numberLeft = getRandomNumber(0, 30);
+    const numberRigth = getRandomNumber(0, 30);
     const operator = getRandomOperator();
     console.log(`Question: ${numberLeft} ${operator} ${numberRigth}`);
     const answer = readlineSync.question('Your answer: ');
