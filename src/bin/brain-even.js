@@ -1,4 +1,4 @@
 #!/usr/bin/env node
-import brainEven from '../games/even-game';
+import braingames from '../gamedrive/switchgames';
 
-brainEven();
+braingames('even-game');

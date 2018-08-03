@@ -27,15 +27,14 @@ const calculateExpresion = (numberLeft, operator, numberRigth) => {
   }
 };
 
+const answerCount = 3;
+
 const brainCalc = () => {
   console.log('Welcome to the Brain Games!');
   console.log('What is the result of the expression?\n');
   const name = readlineSync.question('May I have your name? ');
   console.log(`Hello, ${name} \n`);
-  const answerCount = 3;
-  let numberCorrectAttempts = 0;
-  let attemptsCount = 0;
-  while (attemptsCount < answerCount) {
+  for (let attemptsCount = 0; attemptsCount < answerCount; attemptsCount += 1) {
     const numberLeft = getRandomNumber(0, 30);
     const numberRigth = getRandomNumber(0, 30);
     const operator = getRandomOperator();
@@ -43,15 +42,13 @@ const brainCalc = () => {
     const answer = readlineSync.question('Your answer: ');
     const rigthAnswer = calculateExpresion(numberLeft, operator, numberRigth);
     if (answer === rigthAnswer) {
-      numberCorrectAttempts += 1;
       console.log('Correct!');
     } else {
       console.log(`"${answer}" is wrong answer ;(. Correct answer was "${rigthAnswer}".`);
+      console.log(`Let's try again, ${name}`);
+      return;
     }
-    attemptsCount += 1;
   }
-  if (answerCount === numberCorrectAttempts) console.log(`Congratulations, ${name}!`);
-  else console.log(`Let's try again, ${name}`);
 };
 
 export default brainCalc;
