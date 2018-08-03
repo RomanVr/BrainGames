@@ -3,7 +3,7 @@ import getRandomNuber from './utils';
 
 const answerCount = 3;
 
-const isEven = number => number % 2;
+const isEven = number => (number % 2 ? 'no' : 'yes');
 
 const brainEven = () => {
   console.log('Welcome to the Brain Games!');
@@ -14,8 +14,10 @@ const brainEven = () => {
     const question = getRandomNuber();
     console.log(`Question: ${question}`);
     const answer = readlineSync.question('Your answer: ');
-    const rigthAnswer = isEven(question) ? 'yes' : 'no';
-    if (answer !== rigthAnswer) {
+    const rigthAnswer = isEven(question);
+    if (answer === rigthAnswer) {
+      console.log('Correct!');
+    } else {
       console.log(`"${answer}" is wrong answer ;(. Correct answer was "${rigthAnswer}".`);
       console.log(`Let's try again, ${name}`);
       return;
