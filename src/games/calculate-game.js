@@ -1,4 +1,5 @@
-import getRandomNumber from './utils';
+import getRandomNumber from '../utils/randomNumber';
+import executeGame from '../gamedrive/executegame';
 
 const getRandomOperator = () => {
   switch (getRandomNumber(1, 3)) {
@@ -22,21 +23,27 @@ const calculateExpresion = (numberLeft, operator, numberRigth) => {
     case '*':
       return (Number.parseInt(numberLeft, 10) * Number.parseInt(numberRigth, 10)).toString(10);
     default:
-      return Number.NaN;
+      return undefined;
   }
 };
 
-let numberLeft;
-let numberRigth;
-let operator;
+const calculateGame = () => {
+  const taskGame = 'What is the result of the expression?\n';
+  let numberLeft;
+  let numberRigth;
+  let operator;
+  let correctResult;
+  const questionGame = () => () => {
+    numberLeft = getRandomNumber(0, 30);
+    numberRigth = getRandomNumber(0, 30);
+    operator = getRandomOperator();
+    correctResult = calculateExpresion(numberLeft, operator, numberRigth);
+    return `Question: ${numberLeft} ${operator} ${numberRigth}`;
+  };
 
-export const taskGame = () => ('What is the result of the expression?\n');
+  const getCorrectResult = () => () => correctResult;
 
-export const questionGame = () => {
-  numberLeft = getRandomNumber(0, 30);
-  numberRigth = getRandomNumber(0, 30);
-  operator = getRandomOperator();
-  return `Question: ${numberLeft} ${operator} ${numberRigth}`;
+  executeGame(taskGame, questionGame(), getCorrectResult());
 };
 
-export const correctResult = () => calculateExpresion(numberLeft, operator, numberRigth);
+export default calculateGame;

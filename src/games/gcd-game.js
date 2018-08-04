@@ -1,4 +1,5 @@
-import getRandomNumber from './utils';
+import getRandomNumber from '../utils/randomNumber';
+import executeGame from '../gamedrive/executegame';
 
 const calculateGcd = (numberX, numberY) => {
   let X = numberX;
@@ -11,15 +12,20 @@ const calculateGcd = (numberX, numberY) => {
   return X;
 };
 
-let numberX;
-let numberY;
+const gcdGame = () => {
+  const taskGame = 'Find the greatest common divisor of given numbers.\n';
+  let numberX;
+  let numberY;
+  let correctResult;
+  const questionGame = () => () => {
+    numberX = getRandomNumber(1, 30);
+    numberY = getRandomNumber(1, 30);
+    correctResult = calculateGcd(numberX, numberY).toString(10);
+    return `Question: ${numberX} ${numberY}`;
+  };
 
-export const taskGame = () => ('Find the greatest common divisor of given numbers.\n');
-
-export const questionGame = () => {
-  numberX = getRandomNumber(1, 30);
-  numberY = getRandomNumber(1, 30);
-  return `Question: ${numberX} ${numberY}`;
+  const getCorrectResult = () => () => correctResult;
+  executeGame(taskGame, questionGame(), getCorrectResult());
 };
 
-export const correctResult = () => calculateGcd(numberX, numberY).toString(10);
+export default gcdGame;

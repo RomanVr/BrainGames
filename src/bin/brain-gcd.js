@@ -1,4 +1,4 @@
 #!/usr/bin/env node
-import braingames from '../gamedrive/switchgames';
+import gcdGame from '../games/gcd-game';
 
-braingames('gcd-game');
+gcdGame();
