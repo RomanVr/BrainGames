@@ -1,5 +1,5 @@
 import getRandomNumber from '../utils/randomNumber';
-import executeGame from '../gamedrive/executegame';
+import executeGame from './executegame';
 
 const getRandomOperator = () => {
   switch (getRandomNumber(1, 3)) {
@@ -29,21 +29,16 @@ const calculateExpresion = (numberLeft, operator, numberRigth) => {
 
 const calculateGame = () => {
   const taskGame = 'What is the result of the expression?\n';
-  let numberLeft;
-  let numberRigth;
-  let operator;
-  let correctResult;
+
   const questionGame = () => () => {
-    numberLeft = getRandomNumber(0, 30);
-    numberRigth = getRandomNumber(0, 30);
-    operator = getRandomOperator();
-    correctResult = calculateExpresion(numberLeft, operator, numberRigth);
-    return `Question: ${numberLeft} ${operator} ${numberRigth}`;
+    const numberLeft = getRandomNumber(0, 30);
+    const numberRigth = getRandomNumber(0, 30);
+    const operator = getRandomOperator();
+    const correctResult = calculateExpresion(numberLeft, operator, numberRigth);
+    return [`Question: ${numberLeft} ${operator} ${numberRigth}`, correctResult];
   };
 
-  const getCorrectResult = () => () => correctResult;
-
-  executeGame(taskGame, questionGame(), getCorrectResult());
+  executeGame(taskGame, questionGame());
 };
 
 export default calculateGame;

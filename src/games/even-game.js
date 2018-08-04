@@ -1,19 +1,17 @@
 import getRandomNuber from '../utils/randomNumber';
-import executeGame from '../gamedrive/executegame';
+import executeGame from './executegame';
 
 const isEven = number => (number % 2 === 0);
 
 const evenGame = () => {
   const taskGame = 'Answer "yes" if number even otherwise answer "no".\n';
-  let question;
-  let correctResult;
+
   const questionGame = () => () => {
-    question = getRandomNuber();
-    correctResult = isEven(question) ? 'yes' : 'no';
-    return `Question: ${question}`;
+    const question = getRandomNuber();
+    const correctResult = isEven(question) ? 'yes' : 'no';
+    return [`Question: ${question}`, correctResult];
   };
-  const getCorrectResult = () => () => correctResult;
-  executeGame(taskGame, questionGame(), getCorrectResult());
+  executeGame(taskGame, questionGame());
 };
 
 export default evenGame;

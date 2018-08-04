@@ -10,6 +10,9 @@ start2:
 start3:
 		npm run babel-node -- src/bin/brain-gcd.js
 
+start4:
+		npm run babel-node -- src/bin/brain-balance.js
+
 lint:
 		npm run eslint .
 
