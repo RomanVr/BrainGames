@@ -1,5 +1,5 @@
 import getRandomNumber from '../utils/randomNumber';
-import executeGame from './executegame';
+import executeGame from './execute';
 
 const getProgression = () => {
   let element = getRandomNumber(1, 20);
@@ -21,13 +21,14 @@ const getProgression = () => {
   return [progression, correctResult];
 };
 
+const taskGame = 'What number is missing in this progression?.\n';
+
 const progressionGame = () => {
-  const taskGame = 'What number is missing in this progression?.\n';
-  const questionGame = () => () => {
+  const questionGame = () => {
     const [progression, correctResult] = getProgression();
-    return [`Question: ${progression}`, correctResult];
+    return [progression, correctResult];
   };
-  executeGame(taskGame, questionGame());
+  executeGame(taskGame, questionGame);
 };
 
 export default progressionGame;
