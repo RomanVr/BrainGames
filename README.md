@@ -30,3 +30,4 @@
 6. **Игра:** "Простое ли число?"
       - **bin команда:** `brain-prime`
       - **описание:** *Пользователю показывается случайное число. И ему нужно ответить yes, если число простое, или no - если не простое.*
+      - **пример игры:** <a href="https://asciinema.org/a/360B1UjDb2LV7HR9VwCQnwV7g" target="_blank"><img src="https://asciinema.org/a/360B1UjDb2LV7HR9VwCQnwV7g.png" /></a>
