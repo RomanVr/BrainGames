@@ -22,7 +22,7 @@ const getQuestionAndCorrectResult = () => {
   return [progression, correctResult];
 };
 
-const taskGame = 'What number is missing in this progression?.';
+const taskGame = 'What number is missing in this progression?';
 
 const progressionGame = () => {
   executeGame(taskGame, getQuestionAndCorrectResult);
