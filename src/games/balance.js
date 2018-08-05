@@ -1,5 +1,5 @@
 import getRandomNumber from '../utils/randomNumber';
-import executeGame from './executegame';
+import executeGame from './execute';
 
 const getSummNumber = (stringNumber) => {
   let summ = 0;
@@ -25,14 +25,15 @@ const calculateBalance = (numberBalane) => {
   return newStringNumber;
 };
 
+const taskGame = 'Balance the given number.';
+
 const balanceGame = () => {
-  const taskGame = 'Balance the given number.\n';
-  const questionGame = () => () => {
+  const questionGame = () => {
     const numberBalance = getRandomNumber(100, 999);
     const correctResult = calculateBalance(numberBalance);
-    return [`Question: ${numberBalance}`, correctResult];
+    return [numberBalance, correctResult];
   };
-  executeGame(taskGame, questionGame());
+  executeGame(taskGame, questionGame);
 };
 
 export default balanceGame;
