@@ -1,5 +1,5 @@
-import getRandomNumber from '../utils/randomNumber';
-import executeGame from './execute';
+import getRandomNumber from '../utils';
+import executeGame from '../execute';
 
 const getRandomOperator = () => {
   switch (getRandomNumber(1, 3)) {
@@ -29,16 +29,16 @@ const calculateExpresion = (numberLeft, operator, numberRigth) => {
 
 const taskGame = 'What is the result of the expression?';
 
-const calculateGame = () => {
-  const questionGame = () => {
-    const numberLeft = getRandomNumber(0, 30);
-    const numberRigth = getRandomNumber(0, 30);
-    const operator = getRandomOperator();
-    const correctResult = calculateExpresion(numberLeft, operator, numberRigth);
-    return [`${numberLeft} ${operator} ${numberRigth}`, correctResult];
-  };
+const getQuestionAndCorrectResult = () => {
+  const numberLeft = getRandomNumber(0, 30);
+  const numberRigth = getRandomNumber(0, 30);
+  const operator = getRandomOperator();
+  const correctResult = calculateExpresion(numberLeft, operator, numberRigth);
+  return [`${numberLeft} ${operator} ${numberRigth}`, correctResult];
+};
 
-  executeGame(taskGame, questionGame);
+const calculateGame = () => {
+  executeGame(taskGame, getQuestionAndCorrectResult);
 };
 
 export default calculateGame;

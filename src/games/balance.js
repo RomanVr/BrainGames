@@ -1,5 +1,5 @@
-import getRandomNumber from '../utils/randomNumber';
-import executeGame from './execute';
+import getRandomNumber from '../utils';
+import executeGame from '../execute';
 
 const getSummNumber = (stringNumber) => {
   let summ = 0;
@@ -13,12 +13,11 @@ const calculateBalance = (numberBalane) => {
   const stringNumber = numberBalane.toString(10);
   let summ = getSummNumber(stringNumber);
   let newStringNumber = '';
-  let lengthNumber = stringNumber.length;
-  let currentSymbol;
+  let remainingNumberLength = stringNumber.length;
   for (let i = 0; i < stringNumber.length - 1; i += 1) {
-    currentSymbol = Math.floor(summ / lengthNumber);
+    const currentSymbol = Math.floor(summ / remainingNumberLength);
     summ -= currentSymbol;
-    lengthNumber -= 1;
+    remainingNumberLength -= 1;
     newStringNumber += currentSymbol.toString(10);
   }
   newStringNumber += summ;
@@ -27,13 +26,14 @@ const calculateBalance = (numberBalane) => {
 
 const taskGame = 'Balance the given number.';
 
+const getQuestionAndCorrectResult = () => {
+  const numberBalance = getRandomNumber(100, 999);
+  const correctResult = calculateBalance(numberBalance);
+  return [`${numberBalance}`, correctResult];
+};
+
 const balanceGame = () => {
-  const questionGame = () => {
-    const numberBalance = getRandomNumber(100, 999);
-    const correctResult = calculateBalance(numberBalance);
-    return [numberBalance, correctResult];
-  };
-  executeGame(taskGame, questionGame);
+  executeGame(taskGame, getQuestionAndCorrectResult);
 };
 
 export default balanceGame;
