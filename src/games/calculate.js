@@ -1,8 +1,10 @@
 import getRandomNumber from '../utils';
 import executeGame from '../execute';
 
+const operatorsCounts = 3;
+
 const getRandomOperator = () => {
-  switch (getRandomNumber(1, 3)) {
+  switch (getRandomNumber(1, operatorsCounts)) {
     case 1:
       return '+';
     case 2:
@@ -29,9 +31,11 @@ const calculateExpresion = (numberLeft, operator, numberRigth) => {
 
 const taskGame = 'What is the result of the expression?';
 
+const maxRangeNumbers = 30;
+
 const getQuestionAndCorrectResult = () => {
-  const numberLeft = getRandomNumber(0, 30);
-  const numberRigth = getRandomNumber(0, 30);
+  const numberLeft = getRandomNumber(0, maxRangeNumbers);
+  const numberRigth = getRandomNumber(0, maxRangeNumbers);
   const operator = getRandomOperator();
   const correctResult = calculateExpresion(numberLeft, operator, numberRigth);
   return [`${numberLeft} ${operator} ${numberRigth}`, correctResult];

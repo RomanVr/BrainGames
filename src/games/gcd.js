@@ -14,11 +14,13 @@ const calculateGcd = (numberX, numberY) => {
 
 const taskGame = 'Find the greatest common divisor of given numbers.';
 
+const maxRangeNumbers = 30;
+
 const getQuestionAndCorrectResult = () => {
-  const numberX = getRandomNumber(1, 30);
-  const numberY = getRandomNumber(1, 30);
+  const numberX = getRandomNumber(1, maxRangeNumbers);
+  const numberY = getRandomNumber(1, maxRangeNumbers);
   const correctResult = calculateGcd(numberX, numberY).toString(10);
-  return [`${numberX} ${numberY}`, `${correctResult}`];
+  return [`${numberX} ${numberY}`, correctResult];
 };
 
 const gcdGame = () => {
