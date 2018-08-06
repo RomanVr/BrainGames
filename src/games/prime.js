@@ -13,9 +13,9 @@ const isPrimeNumber = (number) => {
 const maxRangePrimeNumbers = 100;
 
 const getQuestionAndRigthAnswer = () => {
-  const questionPrimeNumber = getRandomNumber(2, maxRangePrimeNumbers).toString(10);
+  const questionPrimeNumber = getRandomNumber(2, maxRangePrimeNumbers);
   const rigthAnswer = isPrimeNumber(questionPrimeNumber) ? 'yes' : 'no';
-  return [questionPrimeNumber, rigthAnswer];
+  return [`${questionPrimeNumber}`, rigthAnswer];
 };
 
 const taskGame = 'Is this number prime?';

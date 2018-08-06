@@ -6,9 +6,9 @@ const isEven = number => (number % 2 === 0);
 const taskGame = 'Answer "yes" if number even otherwise answer "no".';
 
 const getQuestionAndRigthAnswer = () => {
-  const question = getRandomNuber().toString(10);
+  const question = getRandomNuber();
   const rigthAnswer = isEven(question) ? 'yes' : 'no';
-  return [question, rigthAnswer];
+  return [`${question}`, rigthAnswer];
 };
 
 const evenGame = () => {
