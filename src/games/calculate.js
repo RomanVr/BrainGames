@@ -33,16 +33,16 @@ const taskGame = 'What is the result of the expression?';
 
 const maxRangeNumbers = 30;
 
-const getQuestionAndCorrectResult = () => {
+const getQuestionAndRigthAnswer = () => {
   const numberLeft = getRandomNumber(0, maxRangeNumbers);
   const numberRigth = getRandomNumber(0, maxRangeNumbers);
   const operator = getRandomOperator();
-  const correctResult = calculateExpresion(numberLeft, operator, numberRigth);
-  return [`${numberLeft} ${operator} ${numberRigth}`, correctResult];
+  const rigthAnswer = calculateExpresion(numberLeft, operator, numberRigth);
+  return [`${numberLeft} ${operator} ${numberRigth}`, rigthAnswer];
 };
 
 const calculateGame = () => {
-  executeGame(taskGame, getQuestionAndCorrectResult);
+  executeGame(taskGame, getQuestionAndRigthAnswer);
 };
 
 export default calculateGame;

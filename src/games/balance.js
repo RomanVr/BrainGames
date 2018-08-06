@@ -29,14 +29,14 @@ const taskGame = 'Balance the given number.';
 const minRangeNumbers = 100;
 const maxRangeNumbers = 999;
 
-const getQuestionAndCorrectResult = () => {
+const getQuestionAndRigthAnswer = () => {
   const numberBalance = getRandomNumber(minRangeNumbers, maxRangeNumbers).toString(10);
-  const correctResult = calculateBalance(numberBalance);
-  return [numberBalance, correctResult];
+  const rigthAnswer = calculateBalance(numberBalance);
+  return [numberBalance, rigthAnswer];
 };
 
 const balanceGame = () => {
-  executeGame(taskGame, getQuestionAndCorrectResult);
+  executeGame(taskGame, getQuestionAndRigthAnswer);
 };
 
 export default balanceGame;
