@@ -30,9 +30,9 @@ const minRangeNumbers = 100;
 const maxRangeNumbers = 999;
 
 const getQuestionAndRigthAnswer = () => {
-  const numberBalance = getRandomNumber(minRangeNumbers, maxRangeNumbers);
-  const rigthAnswer = calculateBalance(numberBalance);
-  return [`${numberBalance}`, rigthAnswer];
+  const questionNumberBalance = getRandomNumber(minRangeNumbers, maxRangeNumbers);
+  const rigthAnswer = calculateBalance(questionNumberBalance);
+  return [`${questionNumberBalance}`, rigthAnswer];
 };
 
 const balanceGame = () => {
